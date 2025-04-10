@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Patty Paradise</title>
+    <style>
+        /* Reset some basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #ff6347; /* Tomato red color */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        /* Payment form container */
+        .payment-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff6347;
+        }
+
+        .payment-btn {
+            background-color: #28a745; /* Green color */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+
+        .payment-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .payment-container {
+                padding: 15px;
+                width: 95%;
+            }
+            .payment-btn {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Payment Details</h1>
+    </header>
+
+    <div class="payment-container">
+        <form id="payment-form">
+            <!-- Payment Options -->
+            <div class="form-group">
+                <label for="payment-method">Select Payment Method</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="" disabled selected>Select Payment Method</option>
+                    <option value="paytm">Paytm</option>
+                    <option value="PhonePe">PhonePe</option>
+                    <option value="cod">Cash on Delivery</option>
+                </select>
+            </div>
+
+            <!-- Paytm Payment Option -->
+            <div id="paytm-details" class="payment-details">
+                <p>You'll be redirected to Paytm to complete the payment.</p>
+            </div>
+
+            <!-- PhonePe Payment Option -->
+            <div id="phonepe-details" class="payment-details">
+                <p>You'll be redirected to PhonePe to complete the payment.</p>
+            </div>
+
+            <!-- Cash on Delivery Option -->
+            <div id="cod-details" class="payment-details">
+                <p>You'll pay in cash upon delivery.</p>
+            </div>
+
+            <button type="submit" class="payment-btn">Pay Now</button>
+        </form>
+    </div>
+
+    <script>
+        // Show/hide payment options based on selected payment method
+        const paymentMethod = document.getElementById('payment-method');
+        const paytmDetails = document.getElementById('paytm-details');
+        const phonepeDetails = document.getElementById('phonepe-details');
+        const codDetails = document.getElementById('cod-details');
+
+        paymentMethod.addEventListener('change', function () {
+            const selectedMethod = paymentMethod.value;
+
+            // Hide all payment options initially
+            paytmDetails.style.display = 'none';
+            phonepeDetails.style.display = 'none';
+            codDetails.style.display = 'none';
+
+            // Show the corresponding payment method
+            if (selectedMethod === 'paytm') {
+                paytmDetails.style.display = 'block';
+            } else if (selectedMethod === 'PhonePe') {
+                phonepeDetails.style.display = 'block';
+            } else if (selectedMethod === 'cod') {
+                codDetails.style.display = 'block';
+            }
+        });
+
+        // Function to generate a unique order ID
+        function generateOrderId() {
+            return 'ORD' + Math.floor(Math.random() * 1000000); // Generates a random order ID
+        }
+
+        // Handle form submission
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            // Get selected payment method
+            const selectedMethod = paymentMethod.value;
+
+            // Generate a unique order ID
+            const orderId = generateOrderId();
+
+            // Display a popup with the order ID and selected payment method
+            if (selectedMethod === 'paytm') {
+                alert(`Order ID: ${orderId}\nYou will be redirected to Paytm.`);
+            } else if (selectedMethod === 'PhonePe') {
+                alert(`Order ID: ${orderId}\nYou will be redirected to PhonePe.`);
+            } else if (selectedMethod === 'cod') {
+                alert(`Order ID: ${orderId}\nCash on Delivery selected.`);
+            }
+
+            // Redirect to the Track Order page with the order ID in the URL
+            window.location.href = "trackorder.html"// Pass the order ID as a URL parameter
+        });
+    </script>
+</body>
+</html>
