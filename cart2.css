@@ -1,0 +1,126 @@
+/* Reset some basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    background-color: #ff6347; /* Tomato red color */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+/* Cart container */
+.cart-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.cart-table th, .cart-table td {
+    text-align: left;
+    padding: 15px;
+}
+
+.cart-table th {
+    background-color: #ff6347; /* Tomato red color */
+    color: white;
+}
+
+.cart-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item td {
+    vertical-align: middle;
+}
+
+.quantity {
+    width: 50px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.total-price {
+    font-weight: bold;
+    color: #28a745; /* Green color for total */
+}
+
+.remove-btn {
+    background-color: #dc3545; /* Red color for remove button */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: #c82333;
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.checkout-btn {
+    background-color: #28a745; /* Green color for checkout button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .cart-table th, .cart-table td {
+        font-size: 14px;
+    }
+
+    .cart-summary {
+        font-size: 16px;
+    }
+
+    .checkout-btn {
+        font-size: 16px;
+    }
+
+    .cart-container {
+        padding: 15px;
+        width: 95%;
+    }
+}
