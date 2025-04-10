@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Patty Paradise</title>
+    <style>
+        /* Reset some basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #ff6347; /* Tomato red color */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        /* Cart container */
+        .cart-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .cart-table th, .cart-table td {
+            text-align: left;
+            padding: 15px;
+        }
+
+        .cart-table th {
+            background-color: #ff6347; /* Tomato red color */
+            color: white;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item td {
+            vertical-align: middle;
+        }
+
+        .quantity {
+            width: 50px;
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .total-price {
+            font-weight: bold;
+            color: #28a745; /* Green color for total */
+        }
+
+        .remove-btn {
+            background-color: #dc3545; /* Red color for remove button */
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            background-color: #c82333;
+        }
+
+        .cart-summary {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            padding-top: 20px;
+        }
+
+        .checkout-btn {
+            background-color: #28a745; /* Green color for checkout button */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .checkout-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .cart-table th, .cart-table td {
+                font-size: 14px;
+            }
+
+            .cart-summary {
+                font-size: 16px;
+            }
+
+            .checkout-btn {
+                font-size: 16px;
+            }
+
+            .cart-container {
+                padding: 15px;
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+    </header>
+
+    <section class="cart-container">
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be inserted here dynamically -->
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <p><strong>Total Price: Rs <span id="total-price">0</span></strong></p>
+            <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </section>
+
+    <script>
+        // Sample data for cart items
+        const cartItems = [
+            { name: "Classic Veg Burger", price: 75, quantity: 2 },
+            { name: "Double Patty Burger", price: 130, quantity: 1 },
+            { name: "Paneer Patty Burger", price: 199, quantity: 3 },
+            { name: "Double Patty Double Cheese Burger", price: 210, quantity: 1 }
+        ];
+
+        // Function to update the total price
+        function updateTotal() {
+            let total = 0;
+            const cartItemsList = document.querySelectorAll(".cart-item");
+            cartItemsList.forEach(item => {
+                const quantity = item.querySelector(".quantity").value;
+                const price = parseFloat(item.querySelector(".price").textContent.replace("Rs", "").trim());
+                total += quantity * price;
+            });
+            document.getElementById("total-price").textContent = total.toFixed(2);
+        }
+
+        // Function to handle quantity change
+        function handleQuantityChange(e) {
+            const quantityInput = e.target;
+            const row = quantityInput.closest(".cart-item");
+            const price = parseFloat(row.querySelector(".price").textContent.replace("Rs", "").trim());
+            const totalCell = row.querySelector(".total-price");
+            const quantity = quantityInput.value;
+
+            // Update total price for this row
+            totalCell.textContent = "Rs " + (price * quantity).toFixed(2);
+            
+            // Update the overall total
+            updateTotal();
+        }
+
+        // Function to remove item from cart
+        function removeItem(e) {
+            const row = e.target.closest(".cart-item");
+            row.remove();
+            updateTotal();
+        }
+
+        // Function to render cart items
+        function renderCart() {
+            const cartTableBody = document.getElementById("cart-items");
+            cartTableBody.innerHTML = ""; // Clear existing cart items
+            
+            cartItems.forEach((item, index) => {
+                const row = document.createElement("tr");
+                row.classList.add("cart-item");
+                
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td class="price">Rs ${item.price}</td>
+                    <td><input type="number" class="quantity" value="${item.quantity}" min="1" /></td>
+                    <td class="total-price">Rs ${(item.price * item.quantity).toFixed(2)}</td>
+                    <td><button class="remove-btn">Remove</button></td>
+                `;
+                
+                // Add event listeners for quantity change and remove button
+                row.querySelector(".quantity").addEventListener("input", handleQuantityChange);
+                row.querySelector(".remove-btn").addEventListener("click", removeItem);
+                
+                // Append row to the table
+                cartTableBody.appendChild(row);
+            });
+            
+            // Update the total price on initial render
+            updateTotal();
+        }
+
+        // Function to handle checkout button click
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            // Redirect to payment page (replace "payment.html" with your actual payment page URL)
+            window.location.href = "payment.html";
+        });
+
+        // Initialize cart rendering
+        renderCart();
+    </script>
+</body>
+</html>
