@@ -125,7 +125,7 @@
 
             <!-- Cash on Delivery Option -->
             <div id="cod-details" class="payment-details">
-                <p>You'll pay in cash upon delivery.</p>
+                <p>You'll pay in cash on delivery.</p>
             </div>
 
             <button type="submit" class="payment-btn btn btn-success">Pay Now</button>
@@ -145,12 +145,12 @@
         paymentMethod.addEventListener('change', function () {
             const selectedMethod = paymentMethod.value;
 
-            // Hide all payment options initially
+            
             paytmDetails.style.display = 'none';
             phonepeDetails.style.display = 'none';
             codDetails.style.display = 'none';
 
-            // Show the corresponding payment method
+           
             if (selectedMethod === 'paytm') {
                 paytmDetails.style.display = 'block';
             } else if (selectedMethod === 'PhonePe') {
@@ -160,12 +160,12 @@
             }
         });
 
-        // Function to generate a unique order ID
+       
         function generateOrderId() {
             return 'ORD' + Math.floor(Math.random() * 1000000); // Generates a random order ID
         }
 
-        // Handle form submission
+        
         document.getElementById('payment-form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form from submitting normally
 
