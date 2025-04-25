@@ -1,72 +1,90 @@
-/* main.css */
-
-/* Base Styles */
 body {
-    background-color: #fffbe6; /* soft yellow */
-    color: #d62828; /* bold red */
-    font-family: 'Arial', sans-serif;
-    text-align: center;
+    background: #fff;
+    color: #d62828;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* Header */
-.bg-primary {
-    background-color:#ff6f61 !important; /* red */
-    color: white !important;
+header.bg-danger {
+    background: #d62828 !important; /* bold red */
+    color: #fff !important;
 }
 
-/* Navigation */
-.bg-dark {
-    background-color: #f1eee9 !important; /* yellow */
+nav.bg-white {
+    background: #fff !important;
 }
 
 .nav-link {
-    color: #ff6f61 !important;
+    color: #d62828 !important;
     font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 18px;
+    transition: background 0.2s, color 0.2s;
 }
 
-.nav-link:hover {
-    text-decoration: underline;
+.nav-link:hover, .nav-link.active {
+    background: #d62828 !important;
+    color: #fff !important;
 }
 
-/* Hero Section */
-.bg-secondary {
-    background-color:#ff6f61 !important; /* red */
-    color: white !important;
+.hero {
+    background: #fff;
 }
 
-/* Buttons */
 .btn-danger {
-    background-color: #f1eeea !important; /* yellow button */
-    color: #ff6f61 !important;
+    background: #d62828 !important;
+    color: #fff !important;
     border: none;
     font-weight: bold;
+    border-radius: 30px;
+    transition: background 0.2s, box-shadow 0.2s;
 }
 
-.btn-danger:hover {
-    background-color: #f6f5f2 !important;
-    color: white !important;
+.btn-danger:hover, .btn-danger:focus {
+    background: #b52a38 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(214,40,40,0.15);
 }
 
-/* Specials Section */
-.specials h2 {
-    color: #ff6f61;
+.specials {
+    background: #f8f9fa;
 }
 
 .special-item.card {
-    border: 2px solid #ff6f61;
-    background-color: white;
+    border: 2px solid #d62828;
+    background-color: #fff;
+    border-radius: 18px;
+    transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-.special-item .card-title {
-    color: #ff6f61;
+.special-item.card:hover {
+    border-color: #b52a38;
+    box-shadow: 0 8px 24px rgba(214,40,40,0.12);
 }
 
-.special-item .card-text {
-    color: #555; /* keeping a neutral readable tone */
+.card-title {
+    color: #d62828;
+    font-weight: bold;
 }
 
-/* Footer */
-footer.bg-dark {
-    background-color: #ff6f61 !important; /* red footer */
-    color: white !important;
+.card-text {
+    color: #555;
+}
+
+footer.bg-danger {
+    background: #d62828 !important;
+    color: #fff !important;
+    font-size: 1rem;
+}
+
+@media (max-width: 575.98px) {
+    .display-3 {
+        font-size: 2.2rem;
+    }
+    .display-5 {
+        font-size: 1.5rem;
+    }
+    .card-img-top {
+        height: 150px;
+        object-fit: cover;
+    }
 }
