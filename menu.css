@@ -1,151 +1,56 @@
-/* Reset Styles */
-body, h1, h2, h3, p, ul {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Custom styles for Patty Paradise Menu */
+
+.menu-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 18px;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+.menu-card:hover {
+    transform: translateY(-7px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(220,53,69,0.15);
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f31d09;
-    padding: 15px 20px;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: white;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    transition: color 0.3s ease-in-out;
-}
-
-.nav-links a:hover {
-    color: #ffd700; /* Golden yellow */
-}
-
-/* Menu Header */
-header {
-    background-color: #ff6f61;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-/* Menu Grid */
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 40px;
-    text-align: center;
-}
-
-.menu-item {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-}
-
-.menu-item img {
-    width: 100%;
+.card-img-top {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
     height: 200px;
-    border-radius: 8px;
     object-fit: cover;
 }
 
-.menu-item h3 {
-    font-size: 1.5rem;
-    margin: 10px 0;
-}
-
-.menu-item p {
-    font-size: 1rem;
-    margin: 10px 0;
-    color: #555;
-}
-
 .price {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #e22d1d;
-    margin-bottom: 10px;
     display: block;
+    margin: 1rem 0 0.5rem 0;
+    font-size: 1.15rem;
 }
 
-/* Order Button */
-button {
-    background-color: #ff6f61;
-    color: white;
+.order-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 0;
+    background: #dc3545;
+    color: #fff;
     border: none;
-    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
     font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    margin-top: 8px;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(220,53,69,0.08);
 }
 
-button:hover {
-    background-color: #e55b50;
+.order-btn:hover, .order-btn:focus {
+    background: #b52a38;
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 4px 16px rgba(220,53,69,0.15);
 }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        padding: 10px 0;
-    }
-
-    .nav-links li {
-        margin: 10px 0;
-    }
-
-    .menu-container {
-        padding: 20px;
+@media (max-width: 575.98px) {
+    .card-img-top {
+        height: 150px;
     }
 }
+
+  
