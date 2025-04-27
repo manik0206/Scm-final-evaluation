@@ -128,19 +128,11 @@
   <!-- ✅ Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<<<<<<< HEAD
     <script>
         const paymentMethod = document.getElementById('payment-method');
         const paytmDetails = document.getElementById('paytm-details');
         const phonepeDetails = document.getElementById('phonepe-details');
         const codDetails = document.getElementById('cod-details');
-=======
-  <script>
-    const paymentMethod = document.getElementById('payment-method');
-    const paytmDetails = document.getElementById('paytm-details');
-    const phonepeDetails = document.getElementById('phonepe-details');
-    const codDetails = document.getElementById('cod-details');
->>>>>>> 7ef36c278ecc1606455adcfa7cdd81eaf0e4a208
 
     paymentMethod.addEventListener('change', function () {
       const selectedMethod = paymentMethod.value;
@@ -158,7 +150,6 @@
       }
     });
 
-<<<<<<< HEAD
        
         function generateOrderId() {
             return 'ORD' + Math.floor(Math.random() * 1000000); 
@@ -183,27 +174,5 @@
             window.location.href = "trackorder.html"; 
         });
     </script>
-=======
-    function generateOrderId() {
-      return 'ORD' + Math.floor(Math.random() * 1000000);
-    }
-
-    document.getElementById('payment-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-      const selectedMethod = paymentMethod.value;
-      const orderId = generateOrderId();
-
-      if (selectedMethod === 'paytm') {
-        alert(`Order ID: ${orderId}\nYou will be redirected to Paytm.`);
-      } else if (selectedMethod === 'PhonePe') {
-        alert(`Order ID: ${orderId}\nYou will be redirected to PhonePe.`);
-      } else if (selectedMethod === 'cod') {
-        alert(`Order ID: ${orderId}\nCash on Delivery selected.`);
-      }
-
-      window.location.href = "trackorder.html";
-    });
-  </script>
->>>>>>> 7ef36c278ecc1606455adcfa7cdd81eaf0e4a208
 </body>
 </html>
