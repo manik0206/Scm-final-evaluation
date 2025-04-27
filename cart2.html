@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - Patty Paradise</title>
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <style>
         * {
             margin: 0;
@@ -23,8 +19,8 @@
         }
 
         header {
-            background-color: #e74c3c; /* Changed to match remove button */
-            color: rgb(255, 255, 255);
+            background-color: #e74c3c;
+            color: white;
             text-align: center;
             padding: 20px 0;
         }
@@ -42,24 +38,21 @@
             border-radius: 8px;
         }
 
-        .cart-table {
+        table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 30px;
         }
 
-        .cart-table th, .cart-table td {
+        th, td {
             text-align: left;
             padding: 15px;
+            border: 1px solid #ddd;
         }
 
-        .cart-table th {
+        th {
             background-color: #1abc9c;
             color: white;
-        }
-
-        .cart-item {
-            border-bottom: 1px solid #ddd;
         }
 
         .cart-item td {
@@ -74,9 +67,13 @@
             border: 1px solid #ddd;
         }
 
+        .price {
+            color: #000;
+        }
+
         .total-price {
             font-weight: bold;
-            color: #1abc9c;
+            color: #000;
         }
 
         .remove-btn {
@@ -98,6 +95,7 @@
             align-items: center;
             font-size: 20px;
             padding-top: 20px;
+            flex-wrap: wrap;
         }
 
         .checkout-btn {
@@ -114,8 +112,12 @@
             background-color: #16a085;
         }
 
+        .table-responsive {
+            overflow-x: auto;
+        }
+
         @media (max-width: 768px) {
-            .cart-table th, .cart-table td {
+            th, td {
                 font-size: 14px;
             }
 
@@ -139,13 +141,13 @@
     </style>
 </head>
 <body>
-    <header class="mb-4">
+    <header>
         <h1>Your Cart</h1>
     </header>
 
-    <section class="cart-container container">
+    <section class="cart-container">
         <div class="table-responsive">
-            <table class="cart-table table table-bordered">
+            <table class="cart-table">
                 <thead>
                     <tr>
                         <th>Item</th>
@@ -159,9 +161,9 @@
             </table>
         </div>
 
-        <div class="cart-summary d-flex justify-content-between align-items-center flex-wrap">
+        <div class="cart-summary">
             <p><strong>Total Price: Rs <span id="total-price">0</span></strong></p>
-            <button class="checkout-btn btn btn-success" id="checkout-btn">Proceed to Checkout</button>
+            <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
         </div>
     </section>
 
@@ -209,9 +211,9 @@
                 row.innerHTML = `
                     <td>${item.name}</td>
                     <td class="price">Rs ${item.price}</td>
-                    <td><input type="number" class="quantity form-control" value="${item.quantity}" min="1" /></td>
+                    <td><input type="number" class="quantity" value="${item.quantity}" min="1" /></td>
                     <td class="total-price">Rs ${(item.price * item.quantity).toFixed(2)}</td>
-                    <td><button class="remove-btn btn btn-danger">Remove</button></td>
+                    <td><button class="remove-btn">Remove</button></td>
                 `;
                 row.querySelector(".quantity").addEventListener("input", handleQuantityChange);
                 row.querySelector(".remove-btn").addEventListener("click", removeItem);
