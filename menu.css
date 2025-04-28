@@ -99,14 +99,14 @@ header h1 {
 .price {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #e22d1d;
+    color:  #dc3545;
     margin-bottom: 10px;
     display: block;
 }
 
 /* Order Button */
 button {
-    background-color: #ff6f61;
+    background-color:  #dc3545;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -117,7 +117,7 @@ button {
 }
 
 button:hover {
-    background-color: #e55b50;
+    background-color: #dc3545;
 }
 
 /* Footer */
