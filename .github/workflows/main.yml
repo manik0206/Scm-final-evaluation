@@ -1,0 +1,43 @@
+project:
+  name: Patty Paradise - Food Ordering Website
+  description: >
+    A static food ordering website built using only HTML and CSS, 
+    allowing users to browse the menu, view the cart, read about the restaurant, 
+    and access a basic order tracking page.
+  features:
+    - Home page with brand highlights
+    - Menu page showcasing food items
+    - Cart page (static)
+    - Basic Track Order page (static status updates)
+    - About Us page
+    - Responsive navigation bar
+  key_feature:
+    - Basic Order Tracking:
+        description: >
+          A simple tracking page where users can view static delivery status 
+          steps (e.g., Order Confirmed, Preparing, Out for Delivery, Delivered) without live real-time updates.
+        technologies_used:
+          - Pure HTML5 and CSS3
+  tech_stack:
+    frontend:
+      - HTML5
+      - CSS3
+    backend:
+      - None
+    database:
+      - None
+    real_time_communication:
+      - None
+  repository:
+    name: patty-paradise-food-ordering
+    members:
+      - Khushi
+      - Prabhnoor
+      - Manik
+    version_control: GitHub
+  deployment:
+    platform: GitHub Pages or Vercel (static site hosting)
+  notes: >
+    Future enhancements can include adding JavaScript for real-time tracking 
+    and backend integration for dynamic order management.
+
