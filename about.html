@@ -6,14 +6,129 @@
     <title>About Us - Patty Paradise</title>
     <link rel="icon" type="image/png" href="https://cdn.icons.com/icons2/3590/PNG/512/burgers_cafe_food_restaurant_icon_226128.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        :root {
+            --red-main: #e7473c;
+            --red-dark: #b71c1c;
+            --white: #fff;
+            --grey-light: #f5f5f5;
+            --grey-dark: #262626;
+            --grey-text: #3f3f3f;
+        }
+        body {
+            background-color: var(--grey-light);
+            color: var(--grey-text);
+        }
+        header {
+            background: linear-gradient(90deg, var(--red-main) 70%, var(--white) 100%);
+            border-bottom: 4px solid var(--red-dark);
+            color: var(--white);
+            box-shadow: 0 2px 10px rgba(38,38,38,0.04);
+        }
+        header h1 {
+            color: var(--white);
+            font-weight: 800;
+            letter-spacing: 1.5px;
+        }
+        header p {
+            color: #ffeaea;
+            font-size: 1.2rem;
+        }
+        .navbar {
+            background-color: var(--grey-dark) !important;
+            box-shadow: 0 2px 10px rgba(38,38,38,0.07);
+        }
+        .navbar-brand {
+            color: var(--red-main) !important;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 1.3rem;
+        }
+        .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            transition: color 0.2s, border-bottom 0.2s;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: var(--red-main) !important;
+            border-bottom: 2.5px solid var(--red-main);
+            background: transparent !important;
+        }
+        main.container {
+            max-width: 960px;
+        }
+        section {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(38,38,38,0.07);
+            padding: 2.5rem 2rem 2rem 2rem;
+            margin-bottom: 2.5rem;
+        }
+        h2 {
+            color: var(--red-main);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--red-main);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+        .card {
+            border: none;
+            border-radius: 16px;
+            background: var(--grey-light);
+            box-shadow: 0 2px 10px rgba(231,71,60,0.05);
+            transition: box-shadow 0.2s, border 0.2s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 32px rgba(231,71,60,0.18);
+            border: 1.5px solid var(--red-main);
+        }
+        .card-img-top {
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+            height: 250px;
+            object-fit: cover;
+        }
+        .card-title {
+            color: var(--red-dark);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .card-text {
+            color: var(--grey-text);
+        }
+        footer {
+            background: var(--grey-dark);
+            color: var(--white);
+            border-top: 4px solid var(--red-main);
+            letter-spacing: 1px;
+            font-size: 1rem;
+        }
+        @media (max-width: 767.98px) {
+            section {
+                padding: 1.5rem 1rem 1rem 1rem;
+            }
+            .card-img-top {
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header class="bg-danger text-white text-center py-4">
+    <header class="text-center py-4">
         <h1>About Patty Paradise</h1>
-        <p>Discover our story and mission!</p>
+        <p class="lead">Discover our story and mission!</p>
     </header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#">Patty Paradise</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +137,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link active" href="about.html">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="trackorder.html">Track Order</a></li>
             </ul>
         </div>
@@ -34,36 +149,36 @@
             <p>At Patty Paradise, we believe that a great burger can bring people together. Founded in 2020, our mission is to serve the best burgers in town using only the freshest ingredients. Our passion for food and commitment to quality is what sets us apart.</p>
         </section>
 
-        <section class="mt-5">
+        <section>
             <h2>Our Mission</h2>
             <p>Our mission is simple: to provide our customers with delicious, high-quality burgers in a welcoming environment. We strive to create a memorable dining experience for every guest, whether dining in or taking out.</p>
         </section>
 
-        <section class="mt-5">
+        <section>
             <h2>Meet Our Team</h2>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm h-100 hover-shadow">
+                    <div class="card mb-4 h-100">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyRzT8xnJb_Xup-BysWTkLSmRQCrqUTl_Pog&s" class="card-img-top" alt="Jacky Chan">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <h5 class="card-title">Jacky Chan</h5>
                             <p class="card-text">Founder & Chef</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm h-100 hover-shadow">
+                    <div class="card mb-4 h-100">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgbVrGO8iObdgtg2viTM6jGw_MX8BtaQqlWA&s" class="card-img-top" alt="Jenny Smith">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <h5 class="card-title">Jenny Smith</h5>
                             <p class="card-text">Manager</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm h-100 hover-shadow">
+                    <div class="card mb-4 h-100">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO6dmZ-C2gxckPw70YN6A4zDLVcG-sUSyAbA&s" class="card-img-top" alt="Mike Johnson">
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <h5 class="card-title">Mike Johnson</h5>
                             <p class="card-text">Head Cook</p>
                         </div>
@@ -73,7 +188,7 @@
         </section>
     </main>
 
-    <footer class="bg-dark text-white text-center py-3">
+    <footer class="text-center py-3">
         <p>&copy; 2024 Patty Paradise. All Rights Reserved.</p>
     </footer>
 
